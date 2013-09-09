@@ -36,7 +36,7 @@ module Fluent
         end
 
         def add_element(name, arg, block)
-          ::Kernel.raise ::ArgumentError, "#{name} block must be specified" if block.nil?
+          raise ::ArgumentError, "#{name} block must be specified" if block.nil?
 
           proxy = self.class.new(name.to_s, arg)
           proxy.element.instance_exec(&block)
